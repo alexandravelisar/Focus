@@ -9,7 +9,7 @@ const client = mysql.createPool({
   user: DB_USER,
   password: DB_PASSWORD,
   database: DB_NAME,
-  // En ligne (Aiven) : connexion chiffrée, vérifiée avec le certificat de l'hébergeur.
+  // En production (TiDB Cloud) : connexion chiffrée obligatoire, vérifiée avec le certificat DB_SSL_CA.
   // En local : DB_SSL_CA est vide, la connexion reste comme avant.
   ssl: DB_SSL_CA ? { ca: DB_SSL_CA, rejectUnauthorized: true } : undefined,
 });
